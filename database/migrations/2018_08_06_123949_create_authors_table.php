@@ -18,6 +18,15 @@ class CreateAuthorsTable extends Migration
             $table->string('name');
             $table->timestamps();
         });
+
+        Schema::create('author_books', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('author_id')->unsigned()->index();
+            $table->integer('book_id')->unsigned()->index();
+            $table->foreign('author_id')->references('id')->on('authors')->onDelete('cascade');
+            $table->foreign('book_id')->references('id')->on('books')->onDelete('cascade');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -28,5 +37,6 @@ class CreateAuthorsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('authors');
+        Schema::dropIfExists('author_books');
     }
 }
