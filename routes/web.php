@@ -11,4 +11,14 @@
 |
 */
 
-Route::get('/list', 'BookController@list');
+//Route::get('/books', 'BookController@list');
+//
+//Route::get('/authors', 'AuthorController@list');
+
+Route::resource('authors', 'AuthorController');
+
+Route::resource('books', 'BookController');
+
+//Route::get('/books/create', 'BookController@create');
+//
+//Route::get('/authors/create', 'AuthorController@create');

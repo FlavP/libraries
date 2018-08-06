@@ -2,11 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Book;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
     public function list() {
-        return view('books.list');
+        $books = Book::orderBy('namme')->get();
+        return view('books.list', compact('books'));
+    }
+
+    public function create(){
+        $authors = Author::pluck('name', 'id');
+        return view('books.create', compact('authors'));
     }
 }
