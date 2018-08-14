@@ -17,4 +17,9 @@ class BookController extends Controller
         $authors = Author::pluck('name', 'id');
         return view('books.create', compact('authors'));
     }
+
+    public function store(Request $request){
+        $book = new Book();
+
+    }
 }
