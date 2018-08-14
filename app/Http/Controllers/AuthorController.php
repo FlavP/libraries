@@ -20,6 +20,6 @@ class AuthorController extends Controller
         $author = new Author();
         $author->name = $request['name'];
         $author->save();
-        return redirect('authors.list');
+        return view('authors.list');
     }
 }
