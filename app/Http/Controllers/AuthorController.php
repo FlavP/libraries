@@ -22,4 +22,8 @@ class AuthorController extends Controller
         $author->save();
         return view('authors.list');
     }
+
+    public function show(Author $author){
+        return view('books.show', compact('author'));
+    }
 }
