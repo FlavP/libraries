@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-    {!! Form::model($book = new \App\Book(), ['files' => true]) !!}
+    {!! Form::model($book = new \App\Book(), ['files' => true, 'url' => 'books']) !!}
         <div class="form-group">
             {!! Form::label('title', 'Title:') !!}
             {!! Form::text('title', null, ['class' => 'form-control']) !!}

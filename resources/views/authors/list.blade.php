@@ -1,13 +1,12 @@
 @extends('layout')
-
+@section('title')
+    Authors
+@endsection
 @section('content')
     <h1 class="text-center">Authors List</h1>
-    <div class="row">
-        <div class="col-md-6">
-            Left Side
-        </div>
-        <div class="col-md-6">
-            Right Side
-        </div>
-    </div>
+    <ul>
+    @foreach($authors as $author)
+        <li><a href="{{route('authors.show', $author->id)}}">{{$author->name}}</a></li>
+    @endforeach
+    </ul>
 @stop

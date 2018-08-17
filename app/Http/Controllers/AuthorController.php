@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class AuthorController extends Controller
 {
-    public function list() {
+    public function index() {
         $authors = Author::orderBy('name')->get();
         return view('authors.list', compact('authors'));
     }
@@ -20,10 +20,10 @@ class AuthorController extends Controller
         $author = new Author();
         $author->name = $request['name'];
         $author->save();
-        return view('authors.list');
+        return redirect('authors');
     }
 
     public function show(Author $author){
-        return view('books.show', compact('author'));
+        return view('authors.show', compact('author'));
     }
 }
