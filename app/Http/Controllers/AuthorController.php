@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Author;
+use App\Book;
 use Illuminate\Http\Request;
 
 class AuthorController extends Controller
@@ -25,5 +26,19 @@ class AuthorController extends Controller
 
     public function show(Author $author){
         return view('authors.show', compact('author'));
+    }
+
+    public function edit(Author $author){
+        return view('authors.edit', compact('author'));
+    }
+
+    public function update(Author $author, Request $request){
+        $author->update($request->all());
+        return redirect('authors');
+    }
+
+    public function destroy(Author $author){
+        $author->delete();
+        return redirect('authors');
     }
 }

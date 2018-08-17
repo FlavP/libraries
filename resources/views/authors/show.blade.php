@@ -8,7 +8,7 @@
     <h2 class="text-center">{{$author->name}}</h2>
     <ul>
         @foreach($author->books as $book)
-            <li>{{$book->title}}</li>
+            <a href="{{route('books.show', $book->id)}}"><li>{{$book->title}}</li></a>
         @endforeach
     </ul>
 @endsection

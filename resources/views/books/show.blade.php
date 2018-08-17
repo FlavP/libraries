@@ -13,6 +13,8 @@
             @endforeach
             <img src="{{$cover}}" alt="cover" class="img-responsive">
             <p>{{$book->description}}</p>
+            <a href="{{route('books.edit', $book)}}" class="btn btn-info">Edit</a>
+            <a href="{{route('books.destroy', $book)}}" class="btn btn-danger">Delete</a>
         </div>
     </div>
 @endsection()
